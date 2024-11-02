@@ -1,29 +1,37 @@
 import React from "react";
+import { DEGREES_IN_CIRCLE, SECONDS_PER_MINUTE } from "../../util/constants";
 
 export interface GradulationProps {
     second: number;
     color: string;
-    clockWidth: number;
+    clockDiameter: number;
 }
 
 export const Gradulation: React.FC<GradulationProps> = (props) => {
-    const { color, clockWidth, second } = props;
-    const gradulationLength = second % 5 == 0 ? "1rem" : "0.5rem";
-    const transform = second % 5 === 0 ? `translateY(${clockWidth/2 - 1}rem)` : `translateY(${clockWidth/2 - 0.5}rem)`;
-    const position = `${clockWidth/2}rem`;
-    const rotationDegrees = `${(360 / 60) * second}deg`;
+    const { color, clockDiameter, second } = props;
+    const radius = clockDiameter / 2;
+    const hourGradulationLength = radius * 0.15;
+    const minuteGradulationLength = radius * 0.05;
+    const rotationDegrees = (DEGREES_IN_CIRCLE / SECONDS_PER_MINUTE) * second;
+    const isHourGradulationMark = second % 5 === 0;
+    const gradulationLength = isHourGradulationMark
+        ? hourGradulationLength
+        : minuteGradulationLength;
+    const transform = isHourGradulationMark
+        ? `translateY(${radius - hourGradulationLength}rem)`
+        : `translateY(${radius - minuteGradulationLength}rem)`;
 
     return (
         <div
             style={{
                 backgroundColor: color,
-                height: gradulationLength,
+                height: `${gradulationLength}rem`,
                 width: "1px",
                 position: "absolute",
-                top: position,
-                left: position,
+                top: `${radius}rem`,
+                left: `${radius}rem`,
                 transform: transform,
-                rotate: rotationDegrees,
+                rotate: `${rotationDegrees}deg`,
                 transformOrigin: "0% 0%",
             }}
         ></div>

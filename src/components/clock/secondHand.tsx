@@ -1,17 +1,17 @@
 import React from "react";
-import { DEGREES_IN_CIRCLE, MINUTES_PER_HOUR } from "../../util/constants";
+import { DEGREES_IN_CIRCLE, SECONDS_PER_MINUTE } from "../../util/constants";
 
-export interface MinuteHandProps {
-    minute: number;
+export interface SecondHandProps {
+    second: number;
     clockDiameter: number;
     color: string;
 }
 
-export const MinuteHand: React.FC<MinuteHandProps> = (props) => {
+export const SecondHand: React.FC<SecondHandProps> = (props) => {
     const radius = props.clockDiameter / 2;
-    const width = radius * 0.05;
+    const width = radius * 0.02;
     const rotationDegrees =
-        (DEGREES_IN_CIRCLE / MINUTES_PER_HOUR) * props.minute - 180;
+        (DEGREES_IN_CIRCLE / SECONDS_PER_MINUTE) * props.second - 180;
 
     return (
         <div
@@ -26,7 +26,7 @@ export const MinuteHand: React.FC<MinuteHandProps> = (props) => {
                 position: "absolute",
                 transformOrigin: "top center",
                 rotate: `${rotationDegrees}deg`,
-                boxShadow: `${radius * 0.005}rem ${radius * 0.01}rem ${radius * 0.01}rem ${radius * 0.005}rem grey`,
+                boxShadow: `${0.01 * radius}rem ${0.01 * radius}rem ${0.01 * radius}rem ${0.005 * radius}rem grey`,
             }}
         />
     );

@@ -9,3 +9,7 @@ export function getCurrentTime() {
         isAM: hours < 12,
     };
 }
+
+export function getDay(): number {
+    return new Date().getDate();
+}
