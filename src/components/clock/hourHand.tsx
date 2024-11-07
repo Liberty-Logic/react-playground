@@ -34,7 +34,7 @@ export const HourHand: React.FC<HourHandProps> = (props) => {
                 position: "absolute",
                 transformOrigin: "top center",
                 rotate: `${rotationDegrees}deg`,
-                boxShadow: `${radius / 500}rem ${radius / 200}rem ${radius / 100}rem ${radius / 300}rem grey`,
+                boxShadow: `${radius * 0.005}rem ${radius * 0.01}rem ${radius * 0.01}rem ${radius * 0.005}rem rgba(0,0,0,0.33)`
             }}
         />
     );

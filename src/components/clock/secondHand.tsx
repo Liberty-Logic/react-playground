@@ -26,7 +26,7 @@ export const SecondHand: React.FC<SecondHandProps> = (props) => {
                 position: "absolute",
                 transformOrigin: "top center",
                 rotate: `${rotationDegrees}deg`,
-                boxShadow: `${0.01 * radius}rem ${0.01 * radius}rem ${0.01 * radius}rem ${0.005 * radius}rem grey`,
+                boxShadow: `${radius * 0.005}rem ${radius * 0.01}rem ${radius * 0.01}rem ${radius * 0.005}rem rgba(0,0,0,0.33)`,
             }}
         />
     );
