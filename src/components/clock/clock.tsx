@@ -47,6 +47,7 @@ export const Clock: React.FC<ClockProps> = (props) => {
                     border: "1px solid black",
                     borderRadius: "50%",
                     position: "relative",
+                    userSelect: "none"
                 }}
             >
                 {gradulationValues.map((val) => (
