@@ -26,7 +26,7 @@ export const MinuteHand: React.FC<MinuteHandProps> = (props) => {
                 position: "absolute",
                 transformOrigin: "top center",
                 rotate: `${rotationDegrees}deg`,
-                boxShadow: `${radius * 0.005}rem ${radius * 0.01}rem ${radius * 0.01}rem ${radius * 0.005}rem grey`,
+                boxShadow: `${radius * 0.005}rem ${radius * 0.01}rem ${radius * 0.01}rem ${radius * 0.005}rem rgba(0,0,0,0.33)`,
             }}
         />
     );
